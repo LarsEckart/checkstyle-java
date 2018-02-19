@@ -1,0 +1,21 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+out/
+
+# Netbeans
+/.nb-gradle/private/
+/.nb-gradle/profiles/private/
+
+# Mac
+.DS_Store
+
+# (gradle) artifacts
+.gradle
+/build/

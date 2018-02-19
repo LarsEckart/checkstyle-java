@@ -1,0 +1,10 @@
+plugins {
+    id "com.jfrog.artifactory" version "4.4.12"
+}
+
+apply plugin: 'java'
+
+apply from: "$rootDir/gradle/versioning.gradle"
+apply from: "$rootDir/gradle/publish.gradle"
+
+archivesBaseName = 'my-checkstyle'

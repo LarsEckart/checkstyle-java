@@ -1,0 +1,38 @@
+/*
+apply plugin: 'maven-publish'
+
+group = 'tublipoiss'
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier "sources"
+}
+
+publishing {
+    publications {
+        myPublication(MavenPublication) {
+            from components.java
+            artifact sourceJar
+
+            artifactId = archivesBaseName
+        }
+    }
+}
+
+artifactory {
+    contextUrl = "TODO"
+    publish {
+        repository {
+            repoKey = 'TODO'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+        }
+        defaults {
+            publishArtifacts = true
+            publishPom = true
+            publications ('myPublication')
+        }
+    }
+}
+*/

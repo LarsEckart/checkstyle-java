@@ -1,0 +1,31 @@
+version = new ProjectVersion(currentVersion, System.env.BUILD_NUMBER, getWorkingBranch())
+
+class ProjectVersion {
+    String currentVersion
+    Integer build
+    boolean isBeta
+
+    ProjectVersion(String currentVersion, String build, String branch) {
+        this.currentVersion = currentVersion
+        this.build = build as Integer
+        this.isBeta = !branch.equals("master")
+    }
+
+    @Override
+    String toString() {
+        String fullVersion = "$currentVersion"
+
+        if (isBeta) {
+            fullVersion += "-beta.$build"
+        }
+
+        fullVersion
+    }
+}
+
+def getWorkingBranch() {
+    def workingBranch = """git --git-dir=${rootDir}/.git
+                               --work-tree=${rootDir}
+                               rev-parse --abbrev-ref HEAD""".execute().text.trim()
+    return workingBranch
+}

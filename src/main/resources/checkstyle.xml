@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+  <property name="cacheFile" value="build/tmp/checkstyle"/>
+  <property name="severity" value="warning"/>
+  <property name="charset" value="UTF-8"/>
+
+  <module name="SuppressWarningsFilter"/>
+  <module name="FileLength">
+    <property name="max" value="500"/>
+  </module>
+  <module name="FileTabCharacter"/>
+  <module name="NewlineAtEndOfFile"/>
+
+  <module name="RegexpSingleline">
+    <property name="format" value="\s+$"/>
+    <property name="message" value="Line has trailing spaces."/>
+  </module>
+
+  <module name="TreeWalker">
+    <module name="AnnotationLocation">
+      <property name="allowSamelineMultipleAnnotations" value="false"/>
+      <property name="allowSamelineSingleParameterlessAnnotation" value="false"/>
+      <property name="allowSamelineParameterizedAnnotation" value="false"/>
+    </module>
+    <module name="ArrayTrailingComma"/>
+    <module name="AtclauseOrder">
+      <property name="tagOrder" value="@since, @param, @return, @throws, @exception, @deprecated"/>
+      <property name="target" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF, VARIABLE_DEF"/>
+    </module>
+    <module name="AvoidInlineConditionals"/>
+    <module name="AvoidNestedBlocks"/>
+    <module name="AvoidStarImport"/>
+    <module name="AvoidStaticImport">
+      <property name="excludes"
+          value="org.junit.Assert.*,
+                        org.hamcrest.Matchers.*,
+                        org.mockito.Mockito.*,
+                        org.mockito.Matchers.*,
+                        org.mockito.BDDMockito.*,
+                        org.assertj.core.api.Assertions.*,"/>
+    </module>
+    <module name="BooleanExpressionComplexity">
+      <property name="max" value="2"/>
+    </module>
+    <module name="CatchParameterName">
+      <property name="format" value="^(e|ex|[a-z][a-z][a-zA-Z]+)$"/>
+    </module>
+    <module name="ClassDataAbstractionCoupling">
+      <property name="max" value="7"/>
+    </module>
+    <module name="ClassFanOutComplexity">
+      <property name="max" value="20"/>
+    </module>
+    <module name="CommentsIndentation"/>
+    <module name="ConstantName">
+      <property name="format"
+          value="^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*_?[A-Z]$"/>
+    </module>
+    <module name="CovariantEquals"/>
+    <module name="CustomImportOrder">
+      <property name="specialImportsRegExp" value="ee.tublipoiss"/>
+      <property name="sortImportsInGroupAlphabetically" value="true"/>
+      <property name="customImportOrderRules"
+          value="STATIC###STANDARD_JAVA_PACKAGE###THIRD_PARTY_PACKAGE###SPECIAL_IMPORTS"/>
+    </module>
+    <module name="CyclomaticComplexity">
+      <property name="max" value="7"/>
+    </module>
+    <module name="DeclarationOrder">
+      <property name="ignoreConstructors" value="false"/>
+      <property name="ignoreModifiers" value="false"/>
+    </module>
+    <module name="DefaultComesLast">
+      <property name="skipIfLastAndSharedWithCase" value="false"/>
+    </module>
+    <module name="EmptyBlock"/>
+    <module name="EmptyCatchBlock"/>
+    <module name="EmptyForInitializerPad"/>
+    <module name="EmptyForIteratorPad"/>
+    <module name="EmptyLineSeparator">
+      <property name="allowNoEmptyLineBetweenFields" value="true"/>
+      <property name="allowMultipleEmptyLines" value="false"/>
+      <property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/>
+    </module>
+    <module name="EmptyStatement"/>
+    <module name="EqualsAvoidNull"/>
+    <module name="EqualsHashCode"/>
+    <module name="ExplicitInitialization"/>
+    <module name="FallThrough"/>
+    <!--
+    <module name="FinalLocalVariable">
+        <property name="tokens" value="VARIABLE_DEF"/>
+    </module>
+    <module name="FinalParameters" />
+    -->
+    <module name="GenericWhitespace"/>
+    <module name="HideUtilityClassConstructor"/>
+    <module name="IllegalCatch"/>
+    <module name="IllegalThrows"/>
+    <module name="IllegalType"/>
+    <module name="Indentation">
+      <property name="basicOffset" value="4"/>
+      <property name="braceAdjustment" value="0"/>
+      <property name="caseIndent" value="4"/>
+      <property name="throwsIndent" value="8"/>
+      <property name="lineWrappingIndentation" value="8"/>
+      <property name="arrayInitIndent" value="4"/>
+      <property name="forceStrictCondition" value="true"/>
+    </module>
+    <module name="InnerAssignment"/>
+    <module name="InnerTypeLast"/>
+    <module name="InterfaceIsType"/>
+    <module name="LeftCurly">
+      <property name="option" value="nlow"/>
+    </module>
+    <module name="LineLength">
+      <property name="max" value="140"/>
+    </module>
+    <module name="LocalFinalVariableName">
+      <property name="format" value="^[a-z][a-zA-Z0-9]*[a-zA-Z]$"/>
+    </module>
+    <module name="LocalVariableName">
+      <property name="format" value="^[a-z][a-zA-Z0-9]*[a-zA-Z]$"/>
+      <property name="allowOneCharVarInForLoop" value="true"/>
+    </module>
+    <module name="MagicNumber">
+      <property name="tokens" value="NUM_DOUBLE, NUM_FLOAT, NUM_INT, NUM_LONG"/>
+      <property name="ignoreFieldDeclaration" value="false"/>
+      <property name="ignoreAnnotation" value="true"/>
+    </module>
+    <module name="MemberName">
+      <property name="format" value="^[a-z][a-zA-Z0-9]*[a-zA-Z]$"/>
+    </module>
+    <module name="MethodLength">
+      <property name="tokens" value="METHOD_DEF"/>
+      <property name="max" value="42"/>
+      <property name="countEmpty" value="true"/>
+    </module>
+    <!--
+    <module name="MethodName">
+        <property name="format" value="^[a-z][a-zA-Z0-9]*[a-zA-Z]$"/>
+        <message key="name.invalidPattern"
+                 value="Method name ''{0}'' must match pattern ''{1}''."/>
+    </module>
+    -->
+    <module name="MethodParamPad">
+      <property name="allowLineBreaks" value="false"/>
+      <property name="option" value="nospace"/>
+    </module>
+    <module name="MissingDeprecated">
+      <property name="skipNoJavadoc" value="false"/>
+    </module>
+    <module name="MissingSwitchDefault"/>
+    <module name="ModifiedControlVariable">
+      <property name="skipEnhancedForLoopVariable" value="false"/>
+    </module>
+    <module name="ModifierOrder"/>
+    <module name="MultipleStringLiterals">
+      <property name="allowedDuplicates" value="1"/>
+      <property name="ignoreStringsRegexp" value="^[^a-zA-Z0-9]?$"/>
+    </module>
+    <module name="MultipleVariableDeclarations"/>
+    <module name="MutableException"/>
+    <module name="NeedBraces"/>
+    <module name="NestedForDepth">
+      <property name="max" value="2"/>
+    </module>
+    <module name="NestedIfDepth">
+      <property name="max" value="2"/>
+    </module>
+    <module name="NestedTryDepth">
+      <property name="max" value="1"/>
+    </module>
+    <module name="NoClone"/>
+    <module name="NoFinalizer"/>
+    <module name="NoLineWrap"/>
+    <module name="NonEmptyAtclauseDescription"/>
+    <module name="NoWhitespaceAfter"/>
+    <module name="NoWhitespaceBefore"/>
+    <module name="NPathComplexity">
+      <property name="max" value="200"/>
+    </module>
+    <module name="OneStatementPerLine"/>
+    <module name="OneTopLevelClass"/>
+    <module name="OperatorWrap">
+      <property name="option" value="NL"/>
+      <property name="tokens"
+          value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS, QUESTION, SL, SR, STAR "/>
+    </module>
+    <module name="OuterTypeFilename"/>
+    <module name="OuterTypeNumber">
+      <property name="max" value="1"/>
+    </module>
+    <module name="OverloadMethodsDeclarationOrder"/>
+    <module name="PackageName">
+      <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
+    </module>
+    <module name="ParameterAssignment"/>
+    <module name="ParameterName">
+      <property name="ignoreOverridden" value="false"/>
+      <property name="format" value="^[a-z][a-zA-Z0-9]*[a-zA-Z]$"/>
+    </module>
+    <module name="ParameterNumber">
+      <property name="max" value="3"/>
+      <property name="tokens" value="METHOD_DEF, CTOR_DEF"/>
+    </module>
+    <module name="ParenPad"/>
+    <module name="RedundantImport"/>
+    <module name="RequireThis">
+      <property name="checkFields" value="true"/>
+      <property name="checkMethods" value="true"/>
+      <property name="validateOnlyOverlapping" value="false"/>
+    </module>
+    <module name="ReturnCount">
+      <property name="maxForVoid" value="0"/>
+      <property name="max" value="2"/>
+    </module>
+    <module name="RightCurly"/>
+    <module name="SeparatorWrap">
+      <property name="tokens" value="DOT"/>
+      <property name="option" value="nl"/>
+    </module>
+    <module name="SeparatorWrap">
+      <property name="tokens" value="COMMA"/>
+      <property name="option" value="eol"/>
+    </module>
+    <module name="SimplifyBooleanExpression"/>
+    <module name="SimplifyBooleanReturn"/>
+    <module name="SingleLineJavadoc"/>
+    <module name="SingleSpaceSeparator"/>
+    <module name="StaticVariableName">
+      <property name="format" value="^[a-z][a-zA-Z0-9]*[a-zA-Z]$"/>
+    </module>
+    <module name="StringLiteralEquality"/>
+    <module name="SuppressWarningsHolder"/>
+    <module name="ThrowsCount">
+      <property name="max" value="2"/>
+    </module>
+    <module name="TodoComment">
+      <property name="format" value="(TODO)|(todo)|(Todo)|(ToDo)|(FIXME)"/>
+    </module>
+    <module name="TrailingComment"/>
+    <module name="TypecastParenPad"/>
+    <module name="TypeName">
+      <property name="format" value="^[A-Z][a-zA-Z0-9]*[a-zA-Z]$"/>
+    </module>
+    <module name="UnnecessaryParentheses"/>
+    <module name="UnusedImports"/>
+    <module name="UpperEll"/>
+    <module name="VariableDeclarationUsageDistance">
+      <property name="allowedDistance" value="3"/>
+      <property name="ignoreVariablePattern" value="^temp.*"/>
+      <property name="validateBetweenScopes" value="true"/>
+      <property name="ignoreFinal" value="false"/>
+    </module>
+    <module name="VisibilityModifier">
+      <property name="protectedAllowed" value="false"/>
+      <property name="packageAllowed" value="false"/>
+      <property name="allowPublicFinalFields" value="false"/>
+      <property name="allowPublicImmutableFields" value="false"/>
+      <property name="ignoreAnnotationCanonicalNames" value="org.junit.Rule"/>
+    </module>
+    <module name="WhitespaceAfter"/>
+    <module name="WhitespaceAround"/>
+  </module>
+
+</module>
+
