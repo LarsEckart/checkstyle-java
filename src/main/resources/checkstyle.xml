@@ -66,7 +66,7 @@
       <property name="specialImportsRegExp" value="fi.telia"/>
       <property name="sortImportsInGroupAlphabetically" value="true"/>
       <property name="customImportOrderRules"
-          value="STATIC###STANDARD_JAVA_PACKAGE###THIRD_PARTY_PACKAGE###SPECIAL_IMPORTS"/>
+          value="STANDARD_JAVA_PACKAGE###THIRD_PARTY_PACKAGE###SPECIAL_IMPORTS###STATIC"/>
     </module>
     <module name="CyclomaticComplexity">
       <property name="max" value="7"/>
