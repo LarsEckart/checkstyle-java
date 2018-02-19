@@ -37,11 +37,12 @@
     <module name="AvoidStaticImport">
       <property name="excludes"
           value="org.junit.Assert.*,
-                        org.hamcrest.Matchers.*,
-                        org.mockito.Mockito.*,
-                        org.mockito.Matchers.*,
-                        org.mockito.BDDMockito.*,
-                        org.assertj.core.api.Assertions.*,"/>
+            org.junit.jupiter.api.Assertions.*,
+            org.hamcrest.Matchers.*,
+            org.mockito.Mockito.*,
+            org.mockito.Matchers.*,
+            org.mockito.BDDMockito.*,
+            org.assertj.core.api.Assertions.*,"/>
     </module>
     <module name="BooleanExpressionComplexity">
       <property name="max" value="2"/>
@@ -62,7 +63,7 @@
     </module>
     <module name="CovariantEquals"/>
     <module name="CustomImportOrder">
-      <property name="specialImportsRegExp" value="ee.tublipoiss"/>
+      <property name="specialImportsRegExp" value="fi.telia"/>
       <property name="sortImportsInGroupAlphabetically" value="true"/>
       <property name="customImportOrderRules"
           value="STATIC###STANDARD_JAVA_PACKAGE###THIRD_PARTY_PACKAGE###SPECIAL_IMPORTS"/>
