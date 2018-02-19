@@ -211,8 +211,8 @@
     <module name="ParenPad"/>
     <module name="RedundantImport"/>
     <module name="RequireThis">
-      <property name="checkFields" value="true"/>
-      <property name="checkMethods" value="true"/>
+      <property name="checkFields" value="false"/>
+      <property name="checkMethods" value="false"/>
       <property name="validateOnlyOverlapping" value="false"/>
     </module>
     <module name="ReturnCount">
